@@ -35,7 +35,6 @@ if [ "$USE_LETSENCRYPT" = "true" ]; then
         echo "Checking Let's Encrypt certificate for renewal..."
         if ! openssl x509 -in "$CERT_FILE" -checkend $((30 * 24 * 60 * 60)); then
             echo "Certificate is due for renewal. Renewing..."
-            certbot renew
         else
             echo "Certificate is not due for renewal."
         fi
