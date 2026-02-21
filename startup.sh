@@ -88,16 +88,17 @@ if [ -f /etc/postfix/sasl_users ]; then
         echo "$password" | saslpasswd2 -p -c -u "$MAIL_DOMAIN" "$user"
     done < /etc/postfix/sasl_users
     chown postfix:postfix /etc/sasldb2
+    chmod 600 /etc/sasldb2
 elif [ -n "$SASL_USER" ] && [ -n "$SASL_PASSWORD" ]; then
     echo "Creating SASL user: $SASL_USER"
     echo "$SASL_PASSWORD" | saslpasswd2 -p -c -u "$MAIL_DOMAIN" "$SASL_USER"
     chown postfix:postfix /etc/sasldb2
+    chmod 600 /etc/sasldb2
+else
 fi
 
-
+chown 600 /etc/postfix/master.cf
 # Start OpenDKIM and Postfix
-echo "Starting rsyslog..."
-service rsyslog start
 echo "Starting OpenDKIM..."
 service opendkim start
 echo "Starting Postfix..."
