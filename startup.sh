@@ -2,7 +2,7 @@
 
 # Exit immediately if a command exits with a non-zero status
 set -e
-
+/usr/sbin/rsyslogd
 # Set the domain and hostname from environment variables
 if [ -z "$MAIL_DOMAIN" ] || [ -z "$MAIL_HOSTNAME" ]; then
     echo "MAIL_DOMAIN and MAIL_HOSTNAME environment variables are not set."
