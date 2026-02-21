@@ -48,6 +48,6 @@ non_smtpd_milters = $smtpd_milters
 
 anvil_rate_time_unit = 600s
 smtpd_client_connection_rate_limit = 10
-smtpd_client_message_rate_limit = 20
+smtpd_client_message_rate_limit = 10
 smtpd_client_recipient_rate_limit = 80
 
