@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     opendkim \
     opendkim-tools \
     sasl2-bin \
+    libsasl2-modules \
+    libsasl2-modules-db \
     procps \
     certbot \
     rsyslog \

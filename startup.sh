@@ -20,6 +20,12 @@ postconf -e "mydomain = $MAIL_DOMAIN"
 postconf -e "myorigin = \$mydomain"
 postconf -e "smtp_tls_security_level = may"
 
+# Ensure Cyrus SASL finds the configuration
+mkdir -p /etc/sasl2
+if [ -f /etc/postfix/sasl/smtpd.conf ]; then
+    ln -sf /etc/postfix/sasl/smtpd.conf /etc/sasl2/smtpd.conf
+fi
+
 if [ -n "$SMTP_BIND_ADDRESS" ]; then
     postconf -e "smtp_bind_address = $SMTP_BIND_ADDRESS"
 fi
