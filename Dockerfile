@@ -21,6 +21,7 @@ RUN mkdir -p /etc/opendkim/keys
 # Copy Postfix and OpenDKIM configuration files
 COPY main.cf /etc/postfix/main.cf
 COPY master.cf /etc/postfix/master.cf
+COPY smtpd.conf /etc/postfix/sasl/smtpd.conf
 COPY opendkim.conf /etc/opendkim.conf
 COPY KeyTable /etc/opendkim/KeyTable
 COPY SigningTable /etc/opendkim/SigningTable
