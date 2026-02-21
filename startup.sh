@@ -42,6 +42,9 @@ if [ "$USE_LETSENCRYPT" = "true" ]; then
         postconf -e "smtp_tls_cert_file = $CERT_DIR/fullchain.pem"
         postconf -e "smtp_tls_key_file = $CERT_DIR/privkey.pem"
         postconf -e "smtp_tls_CAfile = $CERT_DIR/chain.pem"
+        postconf -e "smtpd_tls_cert_file = $CERT_DIR/fullchain.pem"
+        postconf -e "smtpd_tls_key_file = $CERT_DIR/privkey.pem"
+        postconf -e "smtpd_tls_CAfile = $CERT_DIR/chain.pem"
     else
         echo "Let's Encrypt certificate not found in $CERT_DIR. Skipping TLS configuration."
     fi
