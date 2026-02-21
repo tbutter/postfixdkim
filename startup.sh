@@ -96,6 +96,8 @@ fi
 
 
 # Start OpenDKIM and Postfix
+echo "Starting rsyslog..."
+service rsyslog start
 echo "Starting OpenDKIM..."
 service opendkim start
 echo "Starting Postfix..."
@@ -103,4 +105,5 @@ service postfix start
 
 # Keep the container running
 echo "Postfix and OpenDKIM are running. Tailing mail log..."
+touch /var/log/mail.log
 tail -f /var/log/mail.log

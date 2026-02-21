@@ -1,5 +1,5 @@
-# Use Ubuntu 20.04 as the base image
-FROM ubuntu:20.04
+# Use Ubuntu 24.04 as the base image
+FROM ubuntu:24.04
 
 # Set environment variables to non-interactive to avoid prompts during installation
 ENV DEBIAN_FRONTEND=noninteractive
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     sasl2-bin \
     procps \
     certbot \
+    rsyslog \
     && rm -rf /var/lib/apt/lists/*
 
 # Create necessary directories for OpenDKIM
