@@ -94,7 +94,6 @@ elif [ -n "$SASL_USER" ] && [ -n "$SASL_PASSWORD" ]; then
     echo "$SASL_PASSWORD" | saslpasswd2 -p -c -u "$MAIL_DOMAIN" "$SASL_USER"
     chown postfix:postfix /etc/sasldb2
     chmod 600 /etc/sasldb2
-else
 fi
 
 chown 600 /etc/postfix/master.cf
